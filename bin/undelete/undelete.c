@@ -80,7 +80,16 @@ main(int argc, char *argv[])
 	setprogname(argv[0]);
 	(void)setlocale(LC_ALL, "");
 
-	printf("undelete\n");
+	if(argc != 2)
+        {
+            printf("Format Error. Usage Example: undelete test.txt");
+            rv = -1;
+        }
+        else if(argc == 2)
+        {
+            printf("Undelete");
+            rv = fundelete(argv[1]);
+        }
 
 	exit(rv);
 	/* NOTREACHED */
